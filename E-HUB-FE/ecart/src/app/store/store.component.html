@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="store_data" (ngSubmit)="get_store_Data()">
+                <label>Username</label>
+                <input type="text" placeholder="name" formControlName = 'username'>
+                
+                <br><br>
+                <label>password</label>
+                <input type="password" placeholder="password" formControlName = 'password'>
+                <br><br>
+                <label>email id</label>
+                <input type="text" placeholder="email id" formControlName = 'email_id'>
+                <br><br>
+                <label>image</label>
+                <input type="file" placeholder="image" formControlName = 'img' (change)="onFileChanged($event)">
+                
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+</div>

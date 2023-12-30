@@ -3,7 +3,7 @@
         <div class="col-12">
             <form [formGroup]="store_data" (ngSubmit)="get_store_Data()">
                 <label>Username</label>
-                <input type="text" placeholder="name" formControlName='username'>
+                <input type="text" placeholder="name" formControlName='username' required>
 
                 <br><br>
                 <label>password</label>

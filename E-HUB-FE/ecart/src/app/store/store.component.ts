@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {StoreService} from 'src/app/services/store.service'
 
 
 @Component({
@@ -17,24 +18,25 @@ export class StoreComponent implements OnInit {
   })
 
   selectedfile: File | any = null;
-  constructor() { }
+  constructor(private storeservice:StoreService) { }
 
   ngOnInit(): void {
 
   }
 
   onFileChange(event: any) {
-    // selectedfile: File;
-    // currentFileUpload;
     this.selectedfile = <File>event.target.files[0];
   }
 
 
   get_store_Data() {
+    console.log(this.store_data.value)
     let fd: FormData = new FormData();
-    // console.log(selectedfile)
     fd.append('images', this.selectedfile, this.selectedfile.name)
     console.log(fd.has('images'))
+    this.storeservice.upload_img(fd).subscribe(response=>{
+      console.log(response)
+    })
   }
 
 

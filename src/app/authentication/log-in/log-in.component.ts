@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class LogInComponent {
 
+  onLogin(event: Event) {
+    console.log('Login clicked' + event)
+  }
 }

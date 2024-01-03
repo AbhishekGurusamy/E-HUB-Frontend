@@ -16,13 +16,13 @@ export class LogInComponent {
     password: ''
   }
 
-  API_url = 'http://127.0.0.1:8000/auth/login'
+  // API_url = 'http://127.0.0.1:8000/auth/login'
 
   constructor(private http: HttpClient) { }
 
   onLogin(event: Event) {
     console.log('Login clicked' + event)
 
-    this.http.get(this.API_url, { withCredentials: true })
+    // this.http.get(this.API_url, { withCredentials: true })
   }
 }

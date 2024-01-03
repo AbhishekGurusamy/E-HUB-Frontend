@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { StoreComponent } from './store/store.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     StoreComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

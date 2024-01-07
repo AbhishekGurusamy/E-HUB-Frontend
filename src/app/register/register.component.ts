@@ -26,20 +26,19 @@ export class RegisterComponent implements OnInit {
       // const registerdata = new FormData()
       this.auth.register(this.registerForm.value).subscribe((response)=>{
         console.log('response',response)
+        localStorage.setItem('token',response.token)
         this.toast.showsuccess('User Registred Successfully')
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/createstore'])
+      },
+      (error:any)=>{
+        // console.log('error',error.error.username[0])
+        this.toast.showerror(error.error.username[0])
+        
       })
-      // console.log('valid form');
-      // console.log(this.registerForm.value)
     }
     else{
       this.toast.showerror('invalid details')
-      // console.log('invalid')
-      // console.log(this.registerForm.value)
     }
-    
-    // this.toast.showsuccess('User Registred Successfully')
-    // this.router.navigate(['/dashboard'])
   }
 
 }

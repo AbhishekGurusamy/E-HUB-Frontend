@@ -29,17 +29,16 @@ import { ToastService } from 'src/app/services/toast.service'
 // }
 
 export const auth_guard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
-  Observable<UrlTree> | Promise<UrlTree> | UrlTree => {
+Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree => {
   const toast = inject(ToastService)
   if (localStorage.getItem('token')) {
+    console.log('works')
     toast.showsuccess('Login Successful')
-    // console.log(state.url)
-    return createUrlTreeFromSnapshot(route, [state.url]);
+    console.log(state.url)
+    return true
   }
   else {
     toast.showerror('User not logged in')
-    // this.router.navigate(['/register'])
-    console.log(createUrlTreeFromSnapshot(route, ['/login']))
-    return createUrlTreeFromSnapshot(route, [state.url]);
+    return createUrlTreeFromSnapshot(route,  ['/login']);
   }
 }

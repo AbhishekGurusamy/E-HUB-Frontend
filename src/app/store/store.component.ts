@@ -21,7 +21,7 @@ export class StoreComponent implements OnInit {
   constructor(private storeservice:StoreService) { }
 
   ngOnInit(): void {
-
+    
   }
 
   onFileChange(event: any) {

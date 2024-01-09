@@ -1,0 +1,33 @@
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-4 shadow bg-white px-3 py-3">
+        <div class="col-md-12">
+            <h5 class="mb-3">Welcome to Vendever !!!</h5>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-bounding-box"></i></span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" formControlName="username">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
+                    <input type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1" formControlName="password">
+                </div>
+                <a routerLink="#" class="d-flex justify-content-end">forgot password</a>
+                <button type="submit" class="btn btn-warning col-12 mt-3">login</button>
+            </form>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center px-3">
+                    <button class="btn btn-lg"><i class="bi bi-google"></i></button>
+                    <button class="btn btn-lg"><i class="bi bi-facebook"></i></button>
+                    <button class="btn btn-lg"><i class="bi bi-twitter-x"></i></button>
+                </div> 
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12 text-center">
+                    <p>Don't have account? <a routerLink="/register">Register</a></p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

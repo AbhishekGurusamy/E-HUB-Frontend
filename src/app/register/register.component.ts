@@ -27,7 +27,9 @@ export class RegisterComponent implements OnInit {
       this.auth.register(this.registerForm.value).subscribe((response)=>{
         console.log('response',response)
         localStorage.setItem('token',response.token)
+        localStorage.setItem('token',response.username)
         this.toast.showsuccess('User Registred Successfully')
+        window.location.reload();
         this.router.navigate(['/createstore'])
       },
       (error:any)=>{

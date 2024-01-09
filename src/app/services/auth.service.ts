@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(data: any): Observable<any> {
-    return this.http.post(this.api_url + 'login/', data)
+    return this.http.post(this.api_url + 'login', data)
   }
 
   register(data: any): Observable<any> {

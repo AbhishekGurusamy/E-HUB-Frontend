@@ -1,14 +1,14 @@
 <div class="container-fluid d-flex justify-content-center align-items-center  min-vh-100">
     <div class="row border rounded-3 bg-white shadow box-area">
 
-        <div class="col-md-5 my-3 mx-3 rounded-3 d-flex justify-content-center align-items-center flex-column " style="background-color: #8e4cf8;">
+        <div class="col-md-5 my-2 mx-2 rounded-3 d-flex justify-content-center align-items-center flex-column " style="background-color: #8e4cf8;">
             <div class="featured-image my-3">
                 <img src="./assets/images/register.svg" class="img-fluid rounded-4" alt="no img" style="width: 450px;">
             </div>
             <!-- <p class="text-white fs-5 para">Welcome to Vendever</p> -->
         </div>
 
-        <div class="col-md-5 mx-3 my-3">
+        <div class="col-md-5 mx-2 my-2">
             <p class="fs-4 para"><b>Welcome to Vendever</b></p>
             <form [formGroup]="registerForm" (ngSubmit)="register()">
                 <div class="input-group mb-3">
@@ -35,10 +35,12 @@
             </div>
             <div class="row mt-2">
                 <div class="col-md-12 text-center">
-                    <p>Already have account? <a href="#">Login</a></p>
+                    <p>Already have account? <a routerLink="/login">Login</a></p>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+<router-outlet></router-outlet>

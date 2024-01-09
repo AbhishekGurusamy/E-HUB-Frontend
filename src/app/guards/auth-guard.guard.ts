@@ -7,9 +7,7 @@ import {ToastService} from 'src/app/services/toast.service'
   providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate {
-  constructor(private router: Router, private toast:ToastService) {
-    console.log("AuthGuard")
-  }
+  constructor(private router: Router, private toast:ToastService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,

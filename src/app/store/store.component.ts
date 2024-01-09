@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {StoreService} from 'src/app/services/store.service'
+import { StoreService } from 'src/app/services/store.service'
 
 
 @Component({
@@ -17,8 +17,11 @@ export class StoreComponent implements OnInit {
     'img': new FormControl(null, [Validators.required])
   })
 
-  selectedfile: File | any = null;
-  constructor(private storeservice:StoreService) { }
+  selectedfile: File;
+
+  constructor(private storeservice: StoreService) {
+    this.selectedfile = new File([], '');
+  }
 
   ngOnInit(): void {
     
@@ -34,12 +37,7 @@ export class StoreComponent implements OnInit {
     let fd: FormData = new FormData();
     fd.append('images', this.selectedfile, this.selectedfile.name)
     console.log(fd.has('images'))
-    this.storeservice.upload_img(fd).subscribe(response=>{
-      console.log(response)
-    })
+    this.storeservice.upload_img(fd)
   }
-
-
-
 }
 

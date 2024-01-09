@@ -10,9 +10,15 @@ export class StoreService {
 
   constructor(private http: HttpClient) { }
 
-  upload_img(fb:any) {
-    return this.http.post(this.api_url,fb)
+  upload_img(fb: FormData) {
+    this.http.post(this.api_url, fb)
+      .subscribe({
+        next: (response) => {
+          console.log(response)
+        },
+        error: (err: any) => {
+          console.error("Upload img: " + err);
+        }
+      })
   }
-
-
 }

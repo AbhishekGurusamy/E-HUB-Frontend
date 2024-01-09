@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,7 +9,7 @@ export class AuthService {
 
   api_url = 'http://127.0.0.1:8000/auth/'
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
     return this.http.post(this.api_url + 'login', data)
@@ -24,9 +23,9 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  storeToken(key: string, value: string): void {
+  storeToken(token: string): void {
     try {
-      localStorage.setItem(key, value)
+      localStorage.setItem('token', token)
     }
     catch (e: any) {
       console.log("Storage Limit Exceeded: " + e)

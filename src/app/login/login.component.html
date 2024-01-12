@@ -5,11 +5,13 @@
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-bounding-box"></i></span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" formControlName="username">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1" formControlName="username">
                 </div>
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
-                    <input type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1" formControlName="password">
+                    <input type="password" class="form-control" placeholder="password" aria-label="password"
+                        aria-describedby="basic-addon1" formControlName="password">
                 </div>
                 <a routerLink="#" class="d-flex justify-content-end">forgot password</a>
                 <button type="submit" class="btn btn-warning col-12 mt-3">login</button>
@@ -20,7 +22,7 @@
                     <button class="btn btn-lg"><i class="bi bi-google"></i></button>
                     <button class="btn btn-lg"><i class="bi bi-facebook"></i></button>
                     <button class="btn btn-lg"><i class="bi bi-twitter-x"></i></button>
-                </div> 
+                </div>
             </div>
             <div class="row mt-2">
                 <div class="col-md-12 text-center">
@@ -28,17 +30,21 @@
                 </div>
             </div>
             <div class="row">
-                <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
-            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
-            [videoOptions]="videoOptions"
-            [imageQuality]="1"
-            (cameraSwitched)="cameraWasSwitched($event)"
-            (initError)="handleInitError($event)">hi
-        </webcam>
+                <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+                    *ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+                    [videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)"
+                    (initError)="handleInitError($event)">hi
+                </webcam>
+                <button type="button" class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</button>
+                <!-- <div class="actionBtn" (click)="showNextWebcam(true);" title="Switch Camera">🔁</div> -->
+
+                <button type="button" class="actionBtn" (click)="sendCamPic()" title="Send Picture">🔁</button>
+
             </div>
         </div>
 
-        
-        
+        <img [src]="imageURL" alt="baba" />
+
+
     </div>
 </div>

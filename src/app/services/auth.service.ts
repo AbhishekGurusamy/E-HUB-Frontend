@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  api_url = 'http://127.0.0.1:8000/auth/'
+  api_url = 'http://127.0.0.1:8000/upload/'
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,14 @@ export class AuthService {
 
   register(data: any): Observable<any> {
     return this.http.post(this.api_url + 'register', data)
+  }
+
+  image_call(data: any): Observable<any> {
+    return this.http.post(this.api_url + 'post', data)
+  }
+
+  image_show(): Observable<any> {
+    return this.http.get(this.api_url + 'post')
   }
 
   getToken() {
@@ -31,4 +39,6 @@ export class AuthService {
       console.log("Storage Limit Exceeded: " + e)
     }
   }
+
+
 }
